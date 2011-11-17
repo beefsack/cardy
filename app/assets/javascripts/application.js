@@ -4,6 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require json2.js
 //= require jquery-1.7.js
 //= require jquery.mobile-1.0rc3.js
 //= require_tree .

@@ -21,4 +21,8 @@ class UsersController < ApplicationController
   def show
     respond_with(nil)
   end
+  
+  def logout
+    respond_with(nil)
+  end
 end

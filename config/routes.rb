@@ -1,5 +1,7 @@
 Flashcard::Application.routes.draw do
   match 'users/test_login' => 'users#test_login', :via => :get, :defaults => { :format => 'json' }
+  
+  match 'users/logout' => 'users#logout', :via => :delete, :defaults => { :format => 'json' }
 
   resources :user_deck_session_cards, :defaults => { :format => 'json' }
 
