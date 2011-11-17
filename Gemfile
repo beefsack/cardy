@@ -31,4 +31,4 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'oauth2'
+gem 'devise'
