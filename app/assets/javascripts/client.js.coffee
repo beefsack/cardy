@@ -6,12 +6,14 @@ logout = ->
 update_footer = ->
   username = localStorage.getItem 'username'
   if username?
-    $('[data-role="footer"] h4').html "Logged in as #{username}, <a class=\"ui-link\" href=\"#\">logout</a>."
-    $('[data-role="footer"] h4').find('a').bind 'vclick', ->
+    content = $ "<h4>#{username} <a href=\"#\" data-role=\"button\" data-inline=\"true\">logout</a></h4>"
+    content.find('a').bind 'vclick', ->
       logout()
       $.mobile.changePage 'index.html'
   else
-    $('[data-role="footer"] h4').html '<a class=\"ui-link\" href="register.html">Register</a> or <a class=\"ui-link\" href="login.html">log in</a>.'
+    content = $ '<h4><a href="register.html" data-rel="dialog" data-role="button" data-inline="true" data-theme="b">Register</a> <a href="login.html" data-rel="dialog" data-role="button" data-inline="true">log in</a></h4>'
+  content.addClass('ui-title').attr('role', 'heading')
+  $('[data-role="footer"][footer-type="session"]').html(content).trigger 'create'
 
 $.ajaxSetup
   error: (jqXHR, textStatus, errorThrown) ->
@@ -31,18 +33,20 @@ $.ajaxSetup
       jqHXR.setRequestHeader 'Authorization', header
       
 $('form#register').live 'submit', (e) ->
+  email = $('#email').val()
+  password = $('#password').val()
   $.ajax 'users.json',
     async: false
     type: 'POST'
     data:
       user:
-        email: $('#email').val()
-        password: $('#password').val()
+        email: email
+        password: password
     success: ->
-      localStorage.setItem 'username', username
+      localStorage.setItem 'username', email
       localStorage.setItem 'password', password
       update_footer()
-      $.mobile.changePage 'index.html'
+      $('.ui-dialog').dialog('close')
   return false
 
 $('form#login').live 'submit', (e) ->
@@ -54,7 +58,7 @@ $('form#login').live 'submit', (e) ->
     async: false
     success: ->
       update_footer()
-      $.mobile.changePage 'index.html'
+      $('.ui-dialog').dialog('close')
   return false
   
 $(document).bind 'pageinit', update_footer
