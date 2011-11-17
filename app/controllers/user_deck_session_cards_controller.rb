@@ -1,0 +1,2 @@
+class UserDeckSessionCardsController < ApplicationController
+end

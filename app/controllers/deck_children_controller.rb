@@ -1,0 +1,2 @@
+class DeckChildrenController < ApplicationController
+end

@@ -1,4 +1,20 @@
 Flashcard::Application.routes.draw do
+  resources :user_deck_session_cards, :defaults => { :format => 'json' }
+
+  resources :user_deck_session_card_attempts, :defaults => { :format => 'json' }
+
+  resources :deck_cards, :defaults => { :format => 'json' }
+
+  resources :deck_children, :defaults => { :format => 'json' }
+
+  resources :user_deck_sessions, :defaults => { :format => 'json' }
+
+  resources :decks, :defaults => { :format => 'json' }
+
+  resources :cards, :defaults => { :format => 'json' }
+  
+  resources :users, :defaults => { :format => 'json' }
+
   devise_for :users
 
   # The priority is based upon order of creation:

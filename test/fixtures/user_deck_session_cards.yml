@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_deck_session_id: 1
+  card_id: 1
+  confidence: 1
+  last_attempted_at: 2011-11-17 17:24:05
+
+two:
+  user_deck_session_id: 1
+  card_id: 1
+  confidence: 1
+  last_attempted_at: 2011-11-17 17:24:05

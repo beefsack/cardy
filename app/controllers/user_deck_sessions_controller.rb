@@ -1,0 +1,2 @@
+class UserDeckSessionsController < ApplicationController
+end

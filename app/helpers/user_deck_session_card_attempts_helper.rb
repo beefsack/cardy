@@ -1,0 +1,2 @@
+module UserDeckSessionCardAttemptsHelper
+end

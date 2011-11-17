@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  deck_id: 
+  finished_at: 2011-11-17 15:56:11
+
+two:
+  user_id: 
+  deck_id: 
+  finished_at: 2011-11-17 15:56:11
