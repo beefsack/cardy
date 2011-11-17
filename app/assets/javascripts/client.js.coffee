@@ -9,7 +9,7 @@ update_footer = ->
     content = $ "<h4>#{username} <a href=\"#\" data-role=\"button\" data-inline=\"true\">logout</a></h4>"
     content.find('a').bind 'vclick', ->
       logout()
-      $.mobile.changePage 'index.html'
+      toast "Logged out."
   else
     content = $ '<h4><a href="register.html" data-rel="dialog" data-role="button" data-inline="true" data-theme="b">Register</a> <a href="login.html" data-rel="dialog" data-role="button" data-inline="true">log in</a></h4>'
   content.addClass('ui-title').attr('role', 'heading')
@@ -18,11 +18,10 @@ update_footer = ->
 $.ajaxSetup
   error: (jqXHR, textStatus, errorThrown) ->
     if jqXHR.status is 400
-      alert jqXHR.responseText
+      toast jqXHR.responseText
     if jqXHR.status is 401
       logout()
-      alert 'Email or password incorrect'
-      $.mobile.changePage 'login.html'
+      toast 'Email or password incorrect'
   beforeSend: (jqHXR, settings) ->
     username = localStorage.getItem 'username'
     password = localStorage.getItem 'password'
@@ -47,18 +46,22 @@ $('form#register').live 'submit', (e) ->
       localStorage.setItem 'password', password
       update_footer()
       $('.ui-dialog').dialog('close')
+      toast "Registered as #{email}.",
+        force_page: true
   return false
 
 $('form#login').live 'submit', (e) ->
-  username = $('#email').val()
+  email = $('#email').val()
   password = $('#password').val()
-  localStorage.setItem 'username', $('#email').val()
-  localStorage.setItem 'password', $('#password').val()
+  localStorage.setItem 'username', email
+  localStorage.setItem 'password', password
   $.ajax 'users/test_login.json',
     async: false
     success: ->
       update_footer()
       $('.ui-dialog').dialog('close')
+      toast "Logged in as #{email}.",
+        force_page: true
   return false
   
 $(document).bind 'pageinit', update_footer

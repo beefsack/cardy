@@ -8,3 +8,19 @@
 //= require jquery-1.7.js
 //= require jquery.mobile-1.0rc3.js
 //= require_tree .
+
+function toast(message, options) {
+	if (options === undefined) options = {};
+	if (options.parent === undefined) {
+		if (options.force_page) options.parent = $('[data-role="page"]').last();
+		else options.parent = $('[data-role="page"], [data-role="dialog"]').last();
+	}
+	if (options.delay === undefined) options.delay = 1600;
+	$( "<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h1>"+ message +"</h1></div>" )
+		.css({ "display": "block", "opacity": 0.96, "top": $(window).scrollTop() + 100 })
+		.appendTo( options.parent )
+		.delay( options.delay )
+		.fadeOut( 400, function() {
+			$( this ).remove();
+		});	
+}
