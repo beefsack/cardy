@@ -1,4 +1,6 @@
 Flashcard::Application.routes.draw do
+  match 'users/test_login' => 'users#test_login', :via => :get, :defaults => { :format => 'json' }
+
   resources :user_deck_session_cards, :defaults => { :format => 'json' }
 
   resources :user_deck_session_card_attempts, :defaults => { :format => 'json' }
@@ -16,7 +18,7 @@ Flashcard::Application.routes.draw do
   resources :users, :defaults => { :format => 'json' }
 
   devise_for :users
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
