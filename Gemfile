@@ -42,3 +42,4 @@ gem 'capistrano'
 # gem 'ruby-debug'
 
 gem 'devise'
+gem 'rails-backbone'

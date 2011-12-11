@@ -49,6 +49,7 @@ GEM
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.1)
+    ejs (1.0.0)
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -93,6 +94,10 @@ GEM
       activesupport (= 3.1.1)
       bundler (~> 1.0)
       railties (= 3.1.1)
+    rails-backbone (0.5.5)
+      coffee-script (~> 2.2.0)
+      ejs (~> 1.0.0)
+      rails (~> 3.1.0)
     railties (3.1.1)
       actionpack (= 3.1.1)
       activesupport (= 3.1.1)
@@ -141,6 +146,7 @@ DEPENDENCIES
   json
   pg
   rails (= 3.1.1)
+  rails-backbone
   sass-rails (~> 3.1.4)
   sqlite3
   therubyracer

@@ -4,9 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require json2.js
-//= require jquery-1.6.4.js
-//= require jquery.mobile-1.0rc3.js
+//= require jquery-1.6.4
+//= require jquery.mobile-1.0
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/cardy
 //= require_tree .
 
 function toast(message, options) {

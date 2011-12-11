@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Flashcard::Application.load_tasks
+Cardy::Application.load_tasks
