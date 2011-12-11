@@ -1,7 +1,7 @@
 class Cardy.Models.Card extends Backbone.Model
   paramRoot: 'card'
-  url: '/cards'
+  urlRoot: 'cards'
 
-class Cardy.Collections.CardsCollection extends Backbone.Collection
+class Cardy.Collections.Cards extends Backbone.Collection
   model: Cardy.Models.Card
   url: '/cards'

@@ -3,7 +3,12 @@ class DeckCardsController < ApplicationController
     conditions = {}
     conditions[:deck_id] = params[:deck_id] unless params[:deck_id].nil?
     conditions[:card_id] = params[:card_id] unless params[:card_id].nil?
-    respond_with(@deck_cards = DeckCard.all(:conditions => conditions))
+    if conditions.length == 0
+      respond_with({:error => "You must specify a condition, such as deck_id or card_id."},
+        :status => :bad_request, :location => nil)
+    elsif
+      respond_with(@deck_cards = DeckCard.all(:conditions => conditions))
+    end
   end
   
   def create
