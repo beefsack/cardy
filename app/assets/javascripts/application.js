@@ -11,6 +11,7 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/cardy
+//= require client
 //= require_tree .
 
 function toast(message, options) {

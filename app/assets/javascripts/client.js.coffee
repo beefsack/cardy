@@ -65,5 +65,13 @@ $('form#login').live 'submit', (e) ->
         force_page: true
       document.location.href = '/'
   return false
+
+window.get_param = (name) ->
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]")
+  regexS = "[\\?&]" + name + "=([^&#]*)"
+  regex = new RegExp regexS
+  results = regex.exec window.location.href
+  return "" if !results?
+  return decodeURIComponent(results[1].replace(/\+/g, " "))
   
 $(document).bind 'pageinit', update_footer
