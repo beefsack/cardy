@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def index
-    respond_with(@decks = Deck.all)
+    respond_with(@decks = Deck.search(params[:query], params))
   end
   
   def create

@@ -43,3 +43,4 @@ gem 'capistrano'
 
 gem 'devise'
 gem 'rails-backbone'
+gem 'will_paginate'

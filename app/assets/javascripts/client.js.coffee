@@ -2,6 +2,7 @@ logout = ->
   localStorage.removeItem 'username'
   localStorage.removeItem 'password'
   update_footer()
+  document.location.href = '/'
 
 update_footer = ->
   username = localStorage.getItem 'username'
@@ -62,6 +63,7 @@ $('form#login').live 'submit', (e) ->
       $('.ui-dialog').dialog('close')
       toast "Logged in as #{email}.",
         force_page: true
+      document.location.href = '/'
   return false
   
 $(document).bind 'pageinit', update_footer
