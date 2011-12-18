@@ -4,7 +4,6 @@ class DecksController < ApplicationController
     response_data = {
       :decks => @decks,
       :query => params[:query],
-      #:page => @decks.page,
       :per_page => @decks.per_page,
       :total_pages => @decks.total_pages,
       :total_entries => @decks.total_entries
