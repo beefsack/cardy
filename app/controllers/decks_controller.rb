@@ -1,6 +1,15 @@
 class DecksController < ApplicationController
   def index
-    respond_with(@decks = Deck.search(params[:query], params))
+    @decks = Deck.search params[:query], params
+    response_data = {
+      :decks => @decks,
+      :query => params[:query],
+      #:page => @decks.page,
+      :per_page => @decks.per_page,
+      :total_pages => @decks.total_pages,
+      :total_entries => @decks.total_entries
+    }
+    respond_with(response_data)
   end
   
   def create
@@ -13,7 +22,10 @@ class DecksController < ApplicationController
   end
   
   def show
-    respond_with(@deck = Deck.find(params[:id]))
+    @deck = Deck.find params[:id]
+    # Calculate card count
+    @deck[:card_count] = @deck.cards.size
+    respond_with @deck
   end
   
   def update
