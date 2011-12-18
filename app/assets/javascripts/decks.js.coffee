@@ -6,5 +6,7 @@ $('#searchPage').live 'pageshow', ->
     data:
       query: query
     success: (collection, response) ->
-      collection.each (deck) ->
-        alert deck.get('name')
+      view = new Cardy.Views.DeckList
+        collection: collection
+        el: $('#search-results').get()
+      view.render()

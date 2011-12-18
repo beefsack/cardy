@@ -10,12 +10,14 @@
 		<div data-role="page">
 			<div data-role="content">
         <h1>cardy . clever learning</h1>
-        <form action="search.html" method="get">
+        <form action="search.html" method="get" data-transition="">
           <div data-role="fieldcontain">
             <label for="query">Search:</label>
             <input type="search" id="query" name="query" value="" />
           </div>
         </form>
+        <div id="search_results">
+        </div>
         <div data-role="controlgroup">
           <a href="/my_decks.html" data-role="button">My decks</a>
         </div>

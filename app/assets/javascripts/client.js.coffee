@@ -1,3 +1,7 @@
+$(document).bind 'mobileinit', ->
+  alert 'test'
+  $.mobile.defaultPageTransition = 'none'
+
 logout = ->
   localStorage.removeItem 'username'
   localStorage.removeItem 'password'
