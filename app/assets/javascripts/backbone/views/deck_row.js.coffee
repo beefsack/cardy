@@ -1,13 +1,13 @@
 class Cardy.Views.DeckRow extends Backbone.View
-  tagName: 'li'
+  tagName: 'a'
   className: 'deck-row'
-  events:
-    click: 'openDeck'
   initialize: ->
     this.model.bind 'change', this.render, this
     this.model.bind 'destroy', this.remove, this
   render: ->
-    $(this.el).html this.model.get('name')
+    ref = $(this.el)
+    ref.attr 'href', 'deck.html?id=' + this.model.get('id')
+    ref.attr 'data-role', 'button'
+    ref.html this.model.get('name')
+    ref.trigger 'create'
     return this
-  openDeck: ->
-    alert this.model.get('id')
